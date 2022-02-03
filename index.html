@@ -1,0 +1,59 @@
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<script>
+    var claimToken;
+    function getLoginToken() {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://mcare.siriusxm.ca/authService/100000002/login",
+            "method": "POST",
+            "headers": {
+                'Accept':'application/json',
+                'Content-Type':'application/x-www-form-urlencoded',
+                'X-Kony-App-Secret':'e3048b73f2f7a6c069f7d8abf5864115',
+                'X-Kony-App-Key':'85ee60a3c8f011baaeba01ff3a5ae2c9'
+                },
+            }
+
+            $.ajax(settings).done(function (response) {
+            console.log(response);
+
+            claimToken = response.claims_token.value;
+            $("#claimToken").append(claimToken);
+            });
+            
+    }
+    function activateRadio() {
+        var deviceId = $("#deviceId").val();
+        var activationSettings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://mcare.siriusxm.ca/services/USESBRefresh/RefreshDevice",
+            "method": "POST",
+            "headers": {
+                'X-Kony-Authorization':claimToken,
+                'Content-Type':'application/x-www-form-urlencoded',
+                'X-Kony-API-Version':'1.0',
+                'Access-Control-Allow-Origin':'*',
+                'Connection':'close',
+                'Accept':'*/*'
+                },
+            "data": {"deviceId":deviceId},
+        }
+        var deviceIdData = 
+        $.ajax(activationSettings).done(function (activationresponse) {
+            console.log(activationresponse);
+    })
+    };
+</script>
+<body>
+    <p id="claimToken">Token: </p>
+
+    <button onclick="getLoginToken(); this.onclick=null;">Generate your login token</button>
+    <p>Enter your radio ID below.</p>
+    <input type="text" id="deviceId">
+    <br>
+    <button onclick="activateRadio(); this.onclick=null;">Activate your radio</button>
+</body>
