@@ -37,12 +37,10 @@
                 'Content-Type':'application/x-www-form-urlencoded',
                 'X-Kony-API-Version':'1.0',
                 'Access-Control-Allow-Origin':'*',
-                'Connection':'close',
                 'Accept':'*/*'
                 },
             "data": {"deviceId":deviceId},
         }
-        var deviceIdData = 
         $.ajax(activationSettings).done(function (activationresponse) {
             console.log(activationresponse);
     })
