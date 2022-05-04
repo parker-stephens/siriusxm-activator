@@ -25,6 +25,25 @@
             });
             
     }
+    function createAccount() {
+        var deviceId = $("#deviceId").val();
+        var accountSettings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://mcare.siriusxm.ca/services/DealerAppService3/CreateAccount",
+            "method": "POST",
+            "headers": {
+                'X-Kony-Authorization':claimToken,
+                'Content-Type':'application/x-www-form-urlencoded',
+                'X-Kony-API-Version':'1.0',
+                'Accept':'*/*'
+                },
+            "data": {"deviceId":deviceId},
+        }
+        $.ajax(accountSettings).done(function (accountresponse) {
+            console.log(accountresponse);
+        })
+    };
     function activateRadio() {
         var deviceId = $("#deviceId").val();
         var activationSettings = {
@@ -51,6 +70,8 @@
     <button onclick="getLoginToken(); this.onclick=null;">Generate your login token</button>
     <p>Enter your radio ID below.</p>
     <input type="text" id="deviceId">
+    <br>
+    <button onclick="createAccount(); this.onclick=null;">Create an account for your radio.</button>
     <br>
     <button onclick="activateRadio(); this.onclick=null;">Activate your radio</button>
 </body>
