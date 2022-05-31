@@ -1,5 +1,10 @@
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        body {
+            font-family: Arial;
+        }
+    </style>
 </head>
 <script>
     var claimToken;
@@ -13,7 +18,8 @@
                 'Accept':'application/json',
                 'Content-Type':'application/x-www-form-urlencoded',
                 'X-Kony-App-Secret':'e3048b73f2f7a6c069f7d8abf5864115',
-                'X-Kony-App-Key':'85ee60a3c8f011baaeba01ff3a5ae2c9'
+                'X-Kony-App-Key':'85ee60a3c8f011baaeba01ff3a5ae2c9',
+                'X-Kony-Platform-Type':'ios'
                 },
             }
 
@@ -36,6 +42,7 @@
                 'X-Kony-Authorization':claimToken,
                 'Content-Type':'application/x-www-form-urlencoded',
                 'X-Kony-API-Version':'1.0',
+                'X-Kony-Platform-Type':'ios',
                 'Accept':'*/*'
                 },
             "data": {"deviceId":deviceId},
@@ -49,12 +56,13 @@
         var activationSettings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://mcare.siriusxm.ca/services/USESBRefresh/RefreshDevice",
+            "url": "https://mcare.siriusxm.ca/services/USUpdateDeviceSATRefresh/updateDeviceSATRefreshWithPriority",
             "method": "POST",
             "headers": {
                 'X-Kony-Authorization':claimToken,
                 'Content-Type':'application/x-www-form-urlencoded',
                 'X-Kony-API-Version':'1.0',
+                'X-Kony-Platform-Type':'ios',
                 'Accept':'*/*'
                 },
             "data": {"deviceId":deviceId},
@@ -65,13 +73,18 @@
     };
 </script>
 <body>
-    <p id="claimToken">Token: </p>
-
+    <h2>SiriusXM Radio Activator</h2>
+    <p>You MUST disable CORS in your browser for this page to work.</p>
+    <h4>Step 1 - Just Click the Button Below</h4>
+    <P>You can ignore the the long string of characters, as long as there is one.</P>
     <button onclick="getLoginToken(); this.onclick=null;">Generate your login token</button>
-    <p>Enter your radio ID below.</p>
+    <p id="claimToken">Token: </p>
+    <h4>Steps 2 & 3</h4>
+    <p>Enter your radio ID below. Then press the buttons in order.</p>
     <input type="text" id="deviceId">
     <br>
     <button onclick="createAccount(); this.onclick=null;">Create an account for your radio.</button>
     <br>
     <button onclick="activateRadio(); this.onclick=null;">Activate your radio</button>
+    <p>Make sure the radio is on and set to a channel, and it should come back with all of its channels in ~5 minutes.</p>
 </body>
