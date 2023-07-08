@@ -1,3 +1,7 @@
+## EDIT
+
+Please fork [this](https://replit.com/@AlexAk2/activateradio) replit instead. The HTML page does not work.
+
 # siriusxm-activator
 
 This is an extremely basic HTML page that can theoretically activate a Sirius radio for three months at a time. I say theoretically because you must disable CORS in your browser, otherwise the browser prevents cross-site scripting.
