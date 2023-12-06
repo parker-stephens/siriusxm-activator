@@ -1,6 +1,6 @@
 ## EDIT
 
-Please fork [this](https://replit.com/@AlexAk2/activateradio) replit instead. The HTML page does not work.
+Please fork [this](https://replit.com/@parkercs/activateradio) replit instead. The HTML page does not work.
 
 # siriusxm-activator
 
