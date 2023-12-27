@@ -1,16 +1,12 @@
-## EDIT
-
-Please fork [this](https://replit.com/@parkercs/activateradio) replit instead. The HTML page does not work.
-
 # siriusxm-activator
 
-This is an extremely basic HTML page that can theoretically activate a Sirius radio for three months at a time. I say theoretically because you must disable CORS in your browser, otherwise the browser prevents cross-site scripting.
+This is a python script that can activate a Sirius radio for three months at a time.
 
-You must first generate a login token that will let you send requests to the Sirius API.
+It does this by replicating the API calls that the SXM dealer app makes when activating a radio.
 
-Then you input the radio ID in the box, and select make account (creates trial account for radio), then select activate (sends refresh signal) radio.
+When you run the script, it will ask for your radio ID. Then, it should activate if the createAccount and update_2 responses are SUCCESS.
 
-I personally have found it much easier to use a REST client with a GUI to send the requests.
+Running [this](https://replit.com/@parkercs/activateradio) replit can be done in the browser.
 
 ## Background
 
