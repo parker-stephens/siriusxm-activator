@@ -366,6 +366,7 @@ def update_2():
 
 requests = requests.Session()
 radio_id_input = input("Enter Radio ID: ")
+radio_id_input = radio_id_input.upper()
 uuid4 = str(uuid.uuid4())
 auth_token = ""
 seq = ""
