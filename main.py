@@ -4,22 +4,21 @@ import uuid
 
 def appconfig():
     # appConfig
-    # POST https://mcare.siriusxm.ca/authService/100000002/appconfig
+    # POST https://dealerapp.siriusxm.com/authService/100000002/appconfig
 
     try:
         response = requests.post(
-            url="https://mcare.siriusxm.ca/authService/100000002/appconfig",
+            url="https://dealerapp.siriusxm.com/authService/100000002/appconfig",
             headers={
                 "X-Kony-Integrity":
                 "GWSUSEVMJK;FEC9AA232EC59BE8A39F0FAE1B71300216E906B85F40CA2B1C5C7A59F85B17A4",
                 "X-HTTP-Method-Override": "GET",
-                "X-Kony-App-Key": "85ee60a3c8f011baaeba01ff3a5ae2c9",
+                "X-Voltmx-App-Key": "67cfe0220c41a54cb4e768723ad56b41",
                 "Accept": "*/*",
-                "X-Kony-App-Secret": "e3048b73f2f7a6c069f7d8abf5864115",
+                "X-Voltmx-App-Secret": "c086fca8646a72cf391f8ae9f15e5331",
                 "Accept-Language": "en-us",
                 "Accept-Encoding": "br, gzip, deflate",
-                "User-Agent":
-                "SXM%20Dealer/2.7.0 CFNetwork/978.0.7 Darwin/18.7.0",
+                "User-Agent": "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
             },
         )
         #print('Response HTTP Status Code: {status_code}'.format(
@@ -32,23 +31,22 @@ def appconfig():
 
 def login():
     # login
-    # POST https://mcare.siriusxm.ca/authService/100000002/login
+    # POST https://dealerapp.siriusxm.com/authService/100000002/login
 
     try:
         response = requests.post(
-            url="https://mcare.siriusxm.ca/authService/100000002/login",
+            url="https://dealerapp.siriusxm.com/authService/100000002/login",
             headers={
-                "X-Kony-Platform-Type": "ios",
+                "X-Voltmx-Platform-Type": "ios",
                 "Accept": "application/json",
-                "X-Kony-App-Secret": "e3048b73f2f7a6c069f7d8abf5864115",
+                "X-Voltmx-App-Secret": "c086fca8646a72cf391f8ae9f15e5331",
                 "Accept-Language": "en-us",
-                "X-Kony-SDK-Type": "js",
+                "X-Voltmx-SDK-Type": "js",
                 "Accept-Encoding": "br, gzip, deflate",
                 "Content-Type": "application/x-www-form-urlencoded",
-                "User-Agent":
-                "SXM%20Dealer/2.7.0 CFNetwork/978.0.7 Darwin/18.7.0",
-                "X-Kony-SDK-Version": "8.4.134",
-                "X-Kony-App-Key": "85ee60a3c8f011baaeba01ff3a5ae2c9",
+                "User-Agent": "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
+                "X-Voltmx-SDK-Version": "9.5.36",
+                "X-Voltmx-App-Key": "67cfe0220c41a54cb4e768723ad56b41",
             },
         )
         return response.json().get('claims_token').get('value')
@@ -62,26 +60,26 @@ def login():
 
 def versionControl():
     # VersionControl
-    # POST https://mcare.siriusxm.ca/services/DealerAppService7/VersionControl
+    # POST https://dealerapp.siriusxm.com/services/DealerAppService7/VersionControl
 
     try:
         response = requests.post(
             url=
-            "https://mcare.siriusxm.ca/services/DealerAppService7/VersionControl",
+            "https://dealerapp.siriusxm.com/services/DealerAppService7/VersionControl",
             headers={
                 "Accept": "*/*",
-                "X-Kony-API-Version": "1.0",
-                "X-Kony-DeviceId": uuid4,
+                "X-Voltmx-API-Version": "1.0",
+                "X-Voltmx-DeviceId": uuid4,
                 "Accept-Language": "en-us",
                 "Accept-Encoding": "br, gzip, deflate",
                 "Content-Type": "application/x-www-form-urlencoded",
                 "User-Agent":
-                "SXM%20Dealer/2.7.0 CFNetwork/978.0.7 Darwin/18.7.0",
-                "X-Kony-Authorization": auth_token,
+                "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
+                "X-Voltmx-Authorization": auth_token,
             },
             data={
                 "deviceCategory": "iPhone",
-                "appver": "2.7.0",
+                "appver": "3.1.0",
                 "deviceLocale": "en_US",
                 "deviceModel": "iPhone%206%20Plus",
                 "deviceVersion": "12.5.7",
@@ -98,22 +96,22 @@ def versionControl():
 
 def getProperties():
     # getProperties
-    # POST https://mcare.siriusxm.ca/services/DealerAppService7/getProperties
+    # POST https://dealerapp.siriusxm.com/services/DealerAppService7/getProperties
 
     try:
         response = requests.post(
             url=
-            "https://mcare.siriusxm.ca/services/DealerAppService7/getProperties",
+            "https://dealerapp.siriusxm.com/services/DealerAppService7/getProperties",
             headers={
                 "Accept": "*/*",
-                "X-Kony-API-Version": "1.0",
-                "X-Kony-DeviceId": uuid4,
+                "X-Voltmx-API-Version": "1.0",
+                "X-Voltmx-DeviceId": uuid4,
                 "Accept-Language": "en-us",
                 "Accept-Encoding": "br, gzip, deflate",
                 "Content-Type": "application/x-www-form-urlencoded",
                 "User-Agent":
-                "SXM%20Dealer/2.7.0 CFNetwork/978.0.7 Darwin/18.7.0",
-                "X-Kony-Authorization": auth_token,
+                "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
+                "X-Voltmx-Authorization": auth_token,
             },
         )
         #print('Response HTTP Status Code: {status_code}'.format(
@@ -126,26 +124,26 @@ def getProperties():
 
 def update_1():
     # 1-updateDeviceSATRefreshWithPriority
-    # POST https://mcare.siriusxm.ca/services/USUpdateDeviceSATRefresh/updateDeviceSATRefreshWithPriority
+    # POST https://dealerapp.siriusxm.com/services/USUpdateDeviceSATRefresh/updateDeviceSATRefreshWithPriority
 
     try:
         response = requests.post(
             url=
-            "https://mcare.siriusxm.ca/services/USUpdateDeviceSATRefresh/updateDeviceSATRefreshWithPriority",
+            "https://dealerapp.siriusxm.com/services/USUpdateDeviceSATRefresh/updateDeviceSATRefreshWithPriority",
             headers={
                 "Accept": "*/*",
-                "X-Kony-API-Version": "1.0",
-                "X-Kony-DeviceId": uuid4,
+                "X-Voltmx-API-Version": "1.0",
+                "X-Voltmx-DeviceId": uuid4,
                 "Accept-Language": "en-us",
                 "Accept-Encoding": "br, gzip, deflate",
                 "Content-Type": "application/x-www-form-urlencoded",
                 "User-Agent":
-                "SXM%20Dealer/2.7.0 CFNetwork/978.0.7 Darwin/18.7.0",
-                "X-Kony-Authorization": auth_token,
+                "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
+                "X-Voltmx-Authorization": auth_token,
             },
             data={
                 "deviceId": radio_id_input,
-                "appVersion": "2.7.0",
+                "appVersion": "3.1.0",
                 "lng": "-86.210313195",
                 "deviceID": uuid4,
                 "provisionPriority": "2",
@@ -164,22 +162,22 @@ def update_1():
 
 def getCRM():
     # GetCRMAccountPlanInformation
-    # POST https://mcare.siriusxm.ca/services/DemoConsumptionRules/GetCRMAccountPlanInformation
+    # POST https://dealerapp.siriusxm.com/services/DemoConsumptionRules/GetCRMAccountPlanInformation
 
     try:
         response = requests.post(
             url=
-            "https://mcare.siriusxm.ca/services/DemoConsumptionRules/GetCRMAccountPlanInformation",
+            "https://dealerapp.siriusxm.com/services/DemoConsumptionRules/GetCRMAccountPlanInformation",
             headers={
                 "Accept": "*/*",
-                "X-Kony-API-Version": "1.0",
-                "X-Kony-DeviceId": uuid4,
+                "X-Voltmx-API-Version": "1.0",
+                "X-Voltmx-DeviceId": uuid4,
                 "Accept-Language": "en-us",
                 "Accept-Encoding": "br, gzip, deflate",
                 "Content-Type": "application/x-www-form-urlencoded",
                 "User-Agent":
-                "SXM%20Dealer/2.7.0 CFNetwork/978.0.7 Darwin/18.7.0",
-                "X-Kony-Authorization": auth_token,
+                "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
+                "X-Voltmx-Authorization": auth_token,
             },
             data={
                 "seqVal": seq,
@@ -196,26 +194,26 @@ def getCRM():
 
 def dbUpdate():
     # DBUpdateForGoogle
-    # POST https://mcare.siriusxm.ca/services/DBSuccessUpdate/DBUpdateForGoogle
+    # POST https://dealerapp.siriusxm.com/services/DBSuccessUpdate/DBUpdateForGoogle
 
     try:
         response = requests.post(
             url=
-            "https://mcare.siriusxm.ca/services/DBSuccessUpdate/DBUpdateForGoogle",
+            "https://dealerapp.siriusxm.com/services/DBSuccessUpdate/DBUpdateForGoogle",
             headers={
                 "Accept": "*/*",
-                "X-Kony-API-Version": "1.0",
-                "X-Kony-DeviceId": uuid4,
+                "X-Voltmx-API-Version": "1.0",
+                "X-Voltmx-DeviceId": uuid4,
                 "Accept-Language": "en-us",
                 "Accept-Encoding": "br, gzip, deflate",
                 "Content-Type": "application/x-www-form-urlencoded",
                 "User-Agent":
-                "SXM%20Dealer/2.7.0 CFNetwork/978.0.7 Darwin/18.7.0",
-                "X-Kony-Authorization": auth_token,
+                "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
+                "X-Voltmx-Authorization": auth_token,
             },
             data={
                 "OM_ELIGIBILITY_STATUS": "Eligible",
-                "appVersion": "2.7.0",
+                "appVersion": "3.1.0",
                 "flag": "failure",
                 "Radio_ID": radio_id_input,
                 "deviceID": uuid4,
@@ -236,22 +234,22 @@ def dbUpdate():
 
 def blocklist():
     # BlockListDevice
-    # POST https://mcare.siriusxm.ca/services/USBlockListDevice/BlockListDevice
+    # POST https://dealerapp.siriusxm.com/services/USBlockListDevice/BlockListDevice
 
     try:
         response = requests.post(
             url=
-            "https://mcare.siriusxm.ca/services/USBlockListDevice/BlockListDevice",
+            "https://dealerapp.siriusxm.com/services/USBlockListDevice/BlockListDevice",
             headers={
                 "Accept": "*/*",
-                "X-Kony-API-Version": "1.0",
-                "X-Kony-DeviceId": uuid4,
+                "X-Voltmx-API-Version": "1.0",
+                "X-Voltmx-DeviceId": uuid4,
                 "Accept-Language": "en-us",
                 "Accept-Encoding": "br, gzip, deflate",
                 "Content-Type": "application/x-www-form-urlencoded",
                 "User-Agent":
-                "SXM%20Dealer/2.7.0 CFNetwork/978.0.7 Darwin/18.7.0",
-                "X-Kony-Authorization": auth_token,
+                "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
+                "X-Voltmx-Authorization": auth_token,
             },
             data={
                 "deviceId": uuid4,
@@ -280,7 +278,7 @@ def oracle():
                 "Content-Type": "application/x-www-form-urlencoded",
                 "Accept": "*/*",
                 "User-Agent":
-                "SXM%20Dealer/2.7.0 CFNetwork/978.0.7 Darwin/18.7.0",
+                "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "Accept-Language": "en-us",
                 "Accept-Encoding": "br, gzip, deflate",
             },
@@ -295,28 +293,28 @@ def oracle():
 
 def createAccount():
     # CreateAccount
-    # POST https://mcare.siriusxm.ca/services/DealerAppService3/CreateAccount
+    # POST https://dealerapp.siriusxm.com/services/DealerAppService3/CreateAccount
 
     try:
         response = requests.post(
             url=
-            "https://mcare.siriusxm.ca/services/DealerAppService3/CreateAccount",
+            "https://dealerapp.siriusxm.com/services/DealerAppService3/CreateAccount",
             headers={
                 "Accept": "*/*",
-                "X-Kony-API-Version": "1.0",
-                "X-Kony-DeviceId": uuid4,
+                "X-Voltmx-API-Version": "1.0",
+                "X-Voltmx-DeviceId": uuid4,
                 "Accept-Language": "en-us",
                 "Accept-Encoding": "br, gzip, deflate",
                 "Content-Type": "application/x-www-form-urlencoded",
                 "User-Agent":
-                "SXM Dealer/2.7.0 CFNetwork/978.0.7 Darwin/18.7.0",
-                "X-Kony-Authorization": auth_token,
+                "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
+                "X-Voltmx-Authorization": auth_token,
             },
             data={
                 "seqVal": seq,
                 "deviceId": radio_id_input,
                 "oracleCXFailed": "1",
-                "appVersion": "2.7.0",
+                "appVersion": "3.1.0",
             },
         )
         #print('Response HTTP Status Code: {status_code}'.format(
@@ -329,27 +327,27 @@ def createAccount():
 
 def update_2():
     # 2-updateDeviceSATRefreshWithPriority
-    # POST https://mcare.siriusxm.ca/services/USUpdateDeviceRefreshForCC/updateDeviceSATRefreshWithPriority
+    # POST https://dealerapp.siriusxm.com/services/USUpdateDeviceRefreshForCC/updateDeviceSATRefreshWithPriority
 
     try:
         response = requests.post(
             url=
-            "https://mcare.siriusxm.ca/services/USUpdateDeviceRefreshForCC/updateDeviceSATRefreshWithPriority",
+            "https://dealerapp.siriusxm.com/services/USUpdateDeviceRefreshForCC/updateDeviceSATRefreshWithPriority",
             headers={
                 "Accept": "*/*",
-                "X-Kony-API-Version": "1.0",
-                "X-Kony-DeviceId": uuid4,
+                "X-Voltmx-API-Version": "1.0",
+                "X-Voltmx-DeviceId": uuid4,
                 "Accept-Language": "en-us",
                 "Accept-Encoding": "br, gzip, deflate",
                 "Content-Type": "application/x-www-form-urlencoded",
                 "User-Agent":
-                "SXM%20Dealer/2.7.0 CFNetwork/978.0.7 Darwin/18.7.0",
-                "X-Kony-Authorization": auth_token,
+                "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
+                "X-Voltmx-Authorization": auth_token,
             },
             data={
                 "deviceId": radio_id_input,
                 "provisionPriority": "2",
-                "appVersion": "2.7.0",
+                "appVersion": "3.1.0",
                 "device_Type": "iPhone iPhone 6 Plus",
                 "deviceID": uuid4,
                 "os_Version": "iPhone 12.5.7",
