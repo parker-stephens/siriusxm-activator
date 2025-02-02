@@ -1,6 +1,6 @@
 import requests
 import uuid
-
+import argparse
 
 def appconfig():
     # appConfig
@@ -21,10 +21,11 @@ def appconfig():
                 "User-Agent": "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        #print('Response HTTP Response Body: {content}'.format(
-        #    content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -50,10 +51,6 @@ def login():
             },
         )
         return response.json().get('claims_token').get('value')
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        #print('Response HTTP Response Body: {content}'.format(
-        #    content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -86,10 +83,11 @@ def versionControl():
                 "deviceType": "",
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        #print('Response HTTP Response Body: {content}'.format(
-        #    content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -114,10 +112,11 @@ def getProperties():
                 "X-Voltmx-Authorization": auth_token,
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        #print('Response HTTP Response Body: {content}'.format(
-        #    content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -151,11 +150,12 @@ def update_1():
                 "lat": "32.37436705",
             },
         )
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
         return response.json().get('seqValue')
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -184,10 +184,11 @@ def getCRM():
                 "deviceId": radio_id_input,
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -224,10 +225,11 @@ def dbUpdate():
                 "seqVal": seq,
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -255,10 +257,11 @@ def blocklist():
                 "deviceId": uuid4,
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -283,10 +286,11 @@ def oracle():
                 "Accept-Encoding": "br, gzip, deflate",
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -317,10 +321,11 @@ def createAccount():
                 "appVersion": "3.1.0",
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -354,40 +359,64 @@ def update_2():
                 "provisionType": "activate",
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
 
-requests = requests.Session()
-radio_id_input = input("Enter Radio ID: ")
-radio_id_input = radio_id_input.upper()
-uuid4 = str(uuid.uuid4())
-auth_token = ""
-seq = ""
-print("appconfig")
-appconfig()
-print("login")
-auth_token = login()
-print("versionControl")
-versionControl()
-print("getProperties")
-getProperties()
-print("update_1")
-seq = update_1()
-print("getCRM")
-getCRM()
-print("dbUpdate")
-dbUpdate()
-print("blocklist")
-blocklist()
-# I don't really think the oracle call is neccessary
-print("oracle")
-oracle()
-print("createAccount")
-createAccount()
-print("update_2")
-update_2()
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Process some integers.")
+    parser.add_argument('-d', '--deviceid', type=str, help='Directly pass the device ID')
+    parser.add_argument('-v', '--verbose', action='store_true', help='Enable verbose output')
+    args = parser.parse_args()
+
+    verbose = args.verbose
+    requests = requests.Session()
+
+    if args.deviceid:
+        radio_id_input = args.deviceid.upper()
+    else:
+        radio_id_input = input("Enter Radio ID: ")
+        radio_id_input = radio_id_input.upper()
+
+    uuid4 = str(uuid.uuid4())
+    auth_token = ""
+    seq = ""
+
+    if verbose:
+        print("appconfig")
+    appconfig()
+    if verbose:
+        print("login")
+    auth_token = login()
+    if verbose:
+        print("versionControl")
+    versionControl()
+    if verbose:
+        print("getProperties")
+    getProperties()
+    if verbose:
+        print("update_1")
+    seq = update_1()
+    if verbose:
+        print("getCRM")
+    getCRM()
+    if verbose:
+        print("dbUpdate")
+    dbUpdate()
+    if verbose:
+        print("blocklist")
+    blocklist()
+    if verbose:
+        print("oracle")
+    oracle()
+    if verbose:
+        print("createAccount")
+    createAccount()
+    if verbose:
+        print("update_2")
+    update_2()
