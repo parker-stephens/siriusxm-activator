@@ -371,10 +371,12 @@ def update_2():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process some integers.")
     parser.add_argument('-d', '--deviceid', type=str, help='Directly pass the device ID')
-    parser.add_argument('-v', '--verbose', action='store_true', help='Enable verbose output')
+    parser.add_argument('-v', '--verbose', action='store_true', help='Enable verbose output (only works with -d)')
     args = parser.parse_args()
 
-    verbose = args.verbose
+    # Enable verbose in manual input mode or if -v is passed with -d
+    verbose = args.deviceid is None or (args.deviceid is not None and args.verbose)
+
     requests = requests.Session()
 
     if args.deviceid:
