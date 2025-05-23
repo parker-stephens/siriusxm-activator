@@ -19,6 +19,7 @@ def appconfig():
                 "Accept-Language": "en-us",
                 "Accept-Encoding": "br, gzip, deflate",
                 "User-Agent": "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
+                "X-Voltmx-ReportingParams": "",
             },
         )
         #print('Response HTTP Status Code: {status_code}'.format(
@@ -47,6 +48,7 @@ def login():
                 "User-Agent": "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-SDK-Version": "9.5.36",
                 "X-Voltmx-App-Key": "67cfe0220c41a54cb4e768723ad56b41",
+                "X-Voltmx-ReportingParams": "",
             },
         )
         return response.json().get('claims_token').get('value')
@@ -76,6 +78,7 @@ def versionControl():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
+                "X-Voltmx-ReportingParams": "",
             },
             data={
                 "deviceCategory": "iPhone",
@@ -112,6 +115,7 @@ def getProperties():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
+                "X-Voltmx-ReportingParams": "",
             },
         )
         #print('Response HTTP Status Code: {status_code}'.format(
@@ -140,6 +144,7 @@ def update_1():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
+                "X-Voltmx-ReportingParams": "",
             },
             data={
                 "deviceId": radio_id_input,
@@ -178,6 +183,7 @@ def getCRM():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
+                "X-Voltmx-ReportingParams": "",
             },
             data={
                 "seqVal": seq,
@@ -210,6 +216,7 @@ def dbUpdate():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
+                "X-Voltmx-ReportingParams": "",
             },
             data={
                 "OM_ELIGIBILITY_STATUS": "Eligible",
@@ -250,6 +257,7 @@ def blocklist():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
+                "X-Voltmx-ReportingParams": "",
             },
             data={
                 "deviceId": uuid4,
@@ -281,6 +289,7 @@ def oracle():
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "Accept-Language": "en-us",
                 "Accept-Encoding": "br, gzip, deflate",
+                "X-Voltmx-ReportingParams": "",
             },
         )
         #print('Response HTTP Status Code: {status_code}'.format(
@@ -309,6 +318,7 @@ def createAccount():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
+                "X-Voltmx-ReportingParams": "",
             },
             data={
                 "seqVal": seq,
@@ -343,6 +353,7 @@ def update_2():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
+                "X-Voltmx-ReportingParams": "",
             },
             data={
                 "deviceId": radio_id_input,
