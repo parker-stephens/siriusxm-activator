@@ -1,5 +1,3 @@
-## see [https://github.com/ddthekidd/sxm-activator-discord-invites](https://github.com/ddthekidd/sxm-activator-discord-invites)
-
 # [siriusxm-activator](https://github.com/parker-stephens/siriusxm-activator)
 
 This is a python script that can activate a Sirius radio for three months at a time.
