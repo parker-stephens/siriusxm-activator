@@ -1,6 +1,6 @@
 import requests
 import uuid
-
+import argparse
 
 def appconfig():
     # appConfig
@@ -22,10 +22,11 @@ def appconfig():
                 "X-Voltmx-ReportingParams": "",
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        #print('Response HTTP Response Body: {content}'.format(
-        #    content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -52,10 +53,6 @@ def login():
             },
         )
         return response.json().get('claims_token').get('value')
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        #print('Response HTTP Response Body: {content}'.format(
-        #    content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -89,10 +86,11 @@ def versionControl():
                 "deviceType": "",
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        #print('Response HTTP Response Body: {content}'.format(
-        #    content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -118,10 +116,11 @@ def getProperties():
                 "X-Voltmx-ReportingParams": '%7B%22os%22:%2217.0%22,%22dm%22:%22iPhone%2014%20Pro%22,%22did%22:%22' + uuid4 + '%22,%22ua%22:%22iPhone%22,%22aid%22:%22DealerApp%22,%22aname%22:%22SiriusXM%20Dealer%22,%22chnl%22:%22mobile%22,%22plat%22:%22ios%22,%22aver%22:%223.1.0%22,%22atype%22:%22native%22,%22stype%22:%22b2c%22,%22kuid%22:%22%22,%22mfaid%22:%22df7be3dc-e278-436c-b2f8-4cfde321df0a%22,%22mfbaseid%22:%22efb9acb6-daea-4f2f-aeb3-b17832bdd47b%22,%22mfaname%22:%22DealerApp%22,%22sdkversion%22:%229.5.36%22,%22sdktype%22:%22js%22,%22fid%22:%22frmHome%22,%22sessiontype%22:%22I%22,%22clientUUID%22:%221742536405634-41a8-0de0-125c%22,%22rsid%22:%221742536405654-b954-784f-38d2%22,%22svcid%22:%22getProperties%22%7D',
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        #print('Response HTTP Response Body: {content}'.format(
-        #    content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -156,11 +155,12 @@ def update_1():
                 "lat": "32.37436705",
             },
         )
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
         return response.json().get('seqValue')
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -190,10 +190,11 @@ def getCRM():
                 "deviceId": radio_id_input,
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -231,10 +232,11 @@ def dbUpdate():
                 "seqVal": seq,
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -263,10 +265,11 @@ def blocklist():
                 "deviceId": uuid4,
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -292,10 +295,11 @@ def oracle():
                 "X-Voltmx-ReportingParams": "",
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -327,10 +331,11 @@ def createAccount():
                 "appVersion": "3.1.0",
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
@@ -365,40 +370,66 @@ def update_2():
                 "provisionType": "activate",
             },
         )
-        #print('Response HTTP Status Code: {status_code}'.format(
-        #    status_code=response.status_code))
-        print('Response HTTP Response Body: {content}'.format(
-            content=response.content))
+        if verbose:
+            print('Response HTTP Status Code: {status_code}'.format(
+                status_code=response.status_code))
+            print('Response HTTP Response Body: {content}'.format(
+                content=response.content))
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
 
 
-requests = requests.Session()
-radio_id_input = input("Enter Radio ID: ")
-radio_id_input = radio_id_input.upper()
-uuid4 = str(uuid.uuid4())
-auth_token = ""
-seq = ""
-print("appconfig")
-appconfig()
-print("login")
-auth_token = login()
-print("versionControl")
-versionControl()
-print("getProperties")
-getProperties()
-print("update_1")
-seq = update_1()
-print("getCRM")
-getCRM()
-print("dbUpdate")
-dbUpdate()
-print("blocklist")
-blocklist()
-# I don't really think the oracle call is neccessary
-print("oracle")
-oracle()
-print("createAccount")
-createAccount()
-print("update_2")
-update_2()
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Process some integers.")
+    parser.add_argument('-d', '--deviceid', type=str, help='Directly pass the device ID')
+    parser.add_argument('-v', '--verbose', action='store_true', help='Enable verbose output (only works with -d)')
+    args = parser.parse_args()
+
+    # Enable verbose in manual input mode or if -v is passed with -d
+    verbose = args.deviceid is None or (args.deviceid is not None and args.verbose)
+
+    requests = requests.Session()
+
+    if args.deviceid:
+        radio_id_input = args.deviceid.upper()
+    else:
+        radio_id_input = input("Enter Radio ID: ")
+        radio_id_input = radio_id_input.upper()
+
+    uuid4 = str(uuid.uuid4())
+    auth_token = ""
+    seq = ""
+
+    if verbose:
+        print("appconfig")
+    appconfig()
+    if verbose:
+        print("login")
+    auth_token = login()
+    if verbose:
+        print("versionControl")
+    versionControl()
+    if verbose:
+        print("getProperties")
+    getProperties()
+    if verbose:
+        print("update_1")
+    seq = update_1()
+    if verbose:
+        print("getCRM")
+    getCRM()
+    if verbose:
+        print("dbUpdate")
+    dbUpdate()
+    if verbose:
+        print("blocklist")
+    blocklist()
+    if verbose:
+        print("oracle")
+    oracle()
+    if verbose:
+        print("createAccount")
+    createAccount()
+    if verbose:
+        print("update_2")
+    update_2()
