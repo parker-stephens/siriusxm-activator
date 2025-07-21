@@ -23,7 +23,7 @@ def login():
                 "User-Agent": "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-SDK-Version": "9.5.36",
                 "X-Voltmx-App-Key": "67cfe0220c41a54cb4e768723ad56b41",
-                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$'),
+                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$:,'),
             },
         )
         return response.json().get('claims_token').get('value')
@@ -55,7 +55,7 @@ def versionControl():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
-                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$'),
+                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$:,'),
             },
             data={
                 "deviceCategory": "iPhone",
@@ -94,7 +94,7 @@ def getProperties():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
-                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$'),
+                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$:,'),
             },
         )
         #print('Response HTTP Status Code: {status_code}'.format(
@@ -125,7 +125,7 @@ def update_1():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
-                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$'),
+                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$:,'),
             },
             data={
                 "deviceId": radio_id_input,
@@ -166,7 +166,7 @@ def getCRM():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
-                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$'),
+                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$:,'),
             },
             data={
                 "seqVal": seq,
@@ -201,7 +201,7 @@ def dbUpdate():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
-                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$'),
+                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$:,'),
             },
             data={
                 "OM_ELIGIBILITY_STATUS": "Eligible",
@@ -244,7 +244,7 @@ def blocklist():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
-                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$'),
+                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$:,'),
             },
             data={
                 "deviceId": uuid4,
@@ -307,7 +307,7 @@ def createAccount():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
-                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$'),
+                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$:,'),
             },
             data={
                 "seqVal": seq,
@@ -344,7 +344,7 @@ def update_2():
                 "User-Agent":
                 "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0",
                 "X-Voltmx-Authorization": auth_token,
-                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$'),
+                "X-Voltmx-ReportingParams": urllib.parse.quote(paramsStr, safe='$:,'),
             },
             data={
                 "deviceId": radio_id_input,
