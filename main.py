@@ -2,6 +2,7 @@ import requests
 import uuid
 import json
 import urllib.parse
+import sys
 
 def login():
     # login
@@ -10,7 +11,7 @@ def login():
     try:
         params = {"os":deviceiOSVersion,"dm":deviceModel,"did":uuid4,"ua":"iPhone","aid":"DealerApp","aname":"SiriusXM Dealer","chnl":"mobile","plat":"ios","aver":appVer,"atype":"native","stype":"b2c","kuid":"","mfaid":"df7be3dc-e278-436c-b2f8-4cfde321df0a","mfbaseid":"efb9acb6-daea-4f2f-aeb3-b17832bdd47b","mfaname":"DealerApp","sdkversion":"9.5.36","sdktype":"js","sessiontype":"I","clientUUID":"1742536405634-41a8-0de0-125c","rsid":"1742536405654-b954-784f-38d2","svcid":"login_$anonymousProvider"}
         paramsStr = json.dumps(params, separators=(',', ':'))
-        response = requests.post(
+        response = session.post(
             url="https://dealerapp.siriusxm.com/authService/100000002/login",
             headers={
                 "X-Voltmx-Platform-Type": "ios",
@@ -31,7 +32,7 @@ def login():
         #    status_code=response.status_code))
         #print('Response HTTP Response Body: {content}'.format(
         #    content=response.content))
-    except requests.exceptions.RequestException:
+    except Exception:
         print('HTTP Request failed')
 
 
@@ -42,7 +43,7 @@ def versionControl():
     try:
         params = {"os":deviceiOSVersion,"dm":deviceModel,"did":uuid4,"ua":"iPhone","aid":"DealerApp","aname":"SiriusXM Dealer","chnl":"mobile","plat":"ios","aver":appVer,"atype":"native","stype":"b2c","kuid":"","mfaid":"df7be3dc-e278-436c-b2f8-4cfde321df0a","mfbaseid":"efb9acb6-daea-4f2f-aeb3-b17832bdd47b","mfaname":"DealerApp","sdkversion":"9.5.36","sdktype":"js","fid":"frmHome","sessiontype":"I","clientUUID":"1742536405634-41a8-0de0-125c","rsid":"1742536405654-b954-784f-38d2","svcid":"VersionControl"}
         paramsStr = json.dumps(params, separators=(',', ':'))
-        response = requests.post(
+        response = session.post(
             url=
             "https://dealerapp.siriusxm.com/services/DealerAppService7/VersionControl",
             headers={
@@ -69,7 +70,7 @@ def versionControl():
         #    status_code=response.status_code))
         #print('Response HTTP Response Body: {content}'.format(
         #    content=response.content))
-    except requests.exceptions.RequestException:
+    except Exception:
         print('HTTP Request failed')
 
 
@@ -80,7 +81,7 @@ def getProperties():
     try:
         params = {"os":deviceiOSVersion,"dm":deviceModel,"did":uuid4,"ua":"iPhone","aid":"DealerApp","aname":"SiriusXM Dealer","chnl":"mobile","plat":"ios","aver":appVer,"atype":"native","stype":"b2c","kuid":"","mfaid":"df7be3dc-e278-436c-b2f8-4cfde321df0a","mfbaseid":"efb9acb6-daea-4f2f-aeb3-b17832bdd47b","mfaname":"DealerApp","sdkversion":"9.5.36","sdktype":"js","fid":"frmHome","sessiontype":"I","clientUUID":"1742536405634-41a8-0de0-125c","rsid":"1742536405654-b954-784f-38d2","svcid":"getProperties"}
         paramsStr = json.dumps(params, separators=(',', ':'))
-        response = requests.post(
+        response = session.post(
             url=
             "https://dealerapp.siriusxm.com/services/DealerAppService7/getProperties",
             headers={
@@ -99,7 +100,7 @@ def getProperties():
         #    status_code=response.status_code))
         #print('Response HTTP Response Body: {content}'.format(
         #    content=response.content))
-    except requests.exceptions.RequestException:
+    except Exception:
         print('HTTP Request failed')
 
 
@@ -110,7 +111,7 @@ def update_1():
     try:
         params = {"os":deviceiOSVersion,"dm":deviceModel,"did":uuid4,"ua":"iPhone","aid":"DealerApp","aname":"SiriusXM Dealer","chnl":"mobile","plat":"ios","aver":appVer,"atype":"native","stype":"b2c","kuid":"","mfaid":"df7be3dc-e278-436c-b2f8-4cfde321df0a","mfbaseid":"efb9acb6-daea-4f2f-aeb3-b17832bdd47b","mfaname":"DealerApp","sdkversion":"9.5.36","sdktype":"js","fid":"frmRadioRefresh","sessiontype":"I","clientUUID":"1742536405634-41a8-0de0-125c","rsid":"1742536405654-b954-784f-38d2","svcid":"updateDeviceSATRefreshWithPriority"}
         paramsStr = json.dumps(params, separators=(',', ':'))
-        response = requests.post(
+        response = session.post(
             url=
             "https://dealerapp.siriusxm.com/services/USUpdateDeviceSATRefresh/updateDeviceSATRefreshWithPriority",
             headers={
@@ -139,7 +140,7 @@ def update_1():
         print('Response HTTP Response Body: {content}'.format(
             content=response.content))
         return response.json().get('seqValue')
-    except requests.exceptions.RequestException:
+    except Exception:
         print('HTTP Request failed')
 
 def update_1_vin():
@@ -149,7 +150,7 @@ def update_1_vin():
     try:
         params = {"os":deviceiOSVersion,"dm":deviceModel,"did":uuid4,"ua":"iPhone","aid":"DealerApp","aname":"SiriusXM Dealer","chnl":"mobile","plat":"ios","aver":appVer,"atype":"native","stype":"b2c","kuid":"","mfaid":"df7be3dc-e278-436c-b2f8-4cfde321df0a","mfbaseid":"efb9acb6-daea-4f2f-aeb3-b17832bdd47b","mfaname":"DealerApp","sdkversion":"9.5.36","sdktype":"js","fid":"frmRadioRefresh","sessiontype":"I","clientUUID":"1742536405634-41a8-0de0-125c","rsid":"1742536405654-b954-784f-38d2","svcid":"updateDeviceSATRefreshWithPriority"}
         paramsStr = json.dumps(params, separators=(',', ':'))
-        response = requests.post(
+        response = session.post(
             url=
             "https://dealerapp.siriusxm.com/services/USUpdateDeviceSATRefresh/updateDeviceSATRefreshWithPriority",
             headers={
@@ -179,7 +180,7 @@ def update_1_vin():
         print('Response HTTP Response Body: {content}'.format(
             content=response.content))
         return response.json().get('seqValue')
-    except requests.exceptions.RequestException:
+    except Exception:
         print('HTTP Request failed')
 
 
@@ -190,7 +191,7 @@ def USDealerVehicleData():
     try:
         params = {"os":deviceiOSVersion,"dm":deviceModel,"did":uuid4,"ua":"iPhone","aid":"DealerApp","aname":"SiriusXM Dealer","chnl":"mobile","plat":"ios","aver":appVer,"atype":"native","stype":"b2c","kuid":"","mfaid":"df7be3dc-e278-436c-b2f8-4cfde321df0a","mfbaseid":"efb9acb6-daea-4f2f-aeb3-b17832bdd47b","mfaname":"DealerApp","sdkversion":"9.5.36","sdktype":"js","fid":"frmRadioRefresh","sessiontype":"I","clientUUID":"1753153898694-ee1d-fe60-6c20","rsid":"1753153898749-a0f9-fa31-090b","svcid":"USDealerVehicleData"}
         paramsStr = json.dumps(params, separators=(',', ':'))
-        response = requests.post(
+        response = session.post(
             url=
             "https://dealerapp.siriusxm.com/services/VehicleDataRestService/USDealerVehicleData",
             headers={
@@ -212,9 +213,15 @@ def USDealerVehicleData():
         #    status_code=response.status_code))
         print('Response HTTP Response Body: {content}'.format(
             content=response.content))
-        return response.json().get('radioID')
-    except requests.exceptions.RequestException:
+        if response.json().get('errorMessage') != "":
+            print("Error: " + response.json().get('errorMessage'))
+            print("You will need to manually enter the Radio ID, not the VIN, sorry :(")
+            return None
+        else:
+            return response.json().get('radioID')
+    except Exception:
         print('HTTP Request failed')
+        return None
 
 def getCRM():
     # GetCRMAccountPlanInformation
@@ -223,7 +230,7 @@ def getCRM():
     try:
         params = {"os":deviceiOSVersion,"dm":deviceModel,"did":uuid4,"ua":"iPhone","aid":"DealerApp","aname":"SiriusXM Dealer","chnl":"mobile","plat":"ios","aver":appVer,"atype":"native","stype":"b2c","kuid":"","mfaid":"df7be3dc-e278-436c-b2f8-4cfde321df0a","mfbaseid":"efb9acb6-daea-4f2f-aeb3-b17832bdd47b","mfaname":"DealerApp","sdkversion":"9.5.36","sdktype":"js","fid":"frmRadioRefresh","sessiontype":"I","clientUUID":"1742536405634-41a8-0de0-125c","rsid":"1742536405654-b954-784f-38d2","svcid":"GetCRMAccountPlanInformation"}
         paramsStr = json.dumps(params, separators=(',', ':'))
-        response = requests.post(
+        response = session.post(
             url=
             "https://dealerapp.siriusxm.com/services/DemoConsumptionRules/GetCRMAccountPlanInformation",
             headers={
@@ -246,7 +253,7 @@ def getCRM():
         #    status_code=response.status_code))
         print('Response HTTP Response Body: {content}'.format(
             content=response.content))
-    except requests.exceptions.RequestException:
+    except Exception:
         print('HTTP Request failed')
 
 
@@ -257,7 +264,7 @@ def dbUpdate():
     try:
         params = {"os":deviceiOSVersion,"dm":deviceModel,"did":uuid4,"ua":"iPhone","aid":"DealerApp","aname":"SiriusXM Dealer","chnl":"mobile","plat":"ios","aver":appVer,"atype":"native","stype":"b2c","kuid":"","mfaid":"df7be3dc-e278-436c-b2f8-4cfde321df0a","mfbaseid":"efb9acb6-daea-4f2f-aeb3-b17832bdd47b","mfaname":"DealerApp","sdkversion":"9.5.36","sdktype":"js","fid":"frmRadioRefresh","sessiontype":"I","clientUUID":"1742536405634-41a8-0de0-125c","rsid":"1742536405654-b954-784f-38d2","svcid":"DBUpdateForGoogle"}
         paramsStr = json.dumps(params, separators=(',', ':'))
-        response = requests.post(
+        response = session.post(
             url=
             "https://dealerapp.siriusxm.com/services/DBSuccessUpdate/DBUpdateForGoogle",
             headers={
@@ -288,7 +295,7 @@ def dbUpdate():
         #    status_code=response.status_code))
         print('Response HTTP Response Body: {content}'.format(
             content=response.content))
-    except requests.exceptions.RequestException:
+    except Exception:
         print('HTTP Request failed')
 
 
@@ -299,7 +306,7 @@ def blocklist():
     try:
         params = {"os":deviceiOSVersion,"dm":deviceModel,"did":uuid4,"ua":"iPhone","aid":"DealerApp","aname":"SiriusXM Dealer","chnl":"mobile","plat":"ios","aver":appVer,"atype":"native","stype":"b2c","kuid":"","mfaid":"df7be3dc-e278-436c-b2f8-4cfde321df0a","mfbaseid":"efb9acb6-daea-4f2f-aeb3-b17832bdd47b","mfaname":"DealerApp","sdkversion":"9.5.36","sdktype":"js","fid":"frmRadioRefresh","sessiontype":"I","clientUUID":"1742536405634-41a8-0de0-125c","rsid":"1742536405654-b954-784f-38d2","svcid":"BlockListDevice"}
         paramsStr = json.dumps(params, separators=(',', ':'))
-        response = requests.post(
+        response = session.post(
             url=
             "https://dealerapp.siriusxm.com/services/USBlockListDevice/BlockListDevice",
             headers={
@@ -321,7 +328,7 @@ def blocklist():
         #    status_code=response.status_code))
         print('Response HTTP Response Body: {content}'.format(
             content=response.content))
-    except requests.exceptions.RequestException:
+    except Exception:
         print('HTTP Request failed')
 
 
@@ -330,7 +337,7 @@ def oracle():
     # POST https://oemremarketing.custhelp.com/cgi-bin/oemremarketing.cfg/php/custom/src/oracle/program_status.php
 
     try:
-        response = requests.post(
+        response = session.post(
             url=
             "https://oemremarketing.custhelp.com/cgi-bin/oemremarketing.cfg/php/custom/src/oracle/program_status.php",
             params={
@@ -349,7 +356,7 @@ def oracle():
         #    status_code=response.status_code))
         print('Response HTTP Response Body: {content}'.format(
             content=response.content))
-    except requests.exceptions.RequestException:
+    except Exception:
         print('HTTP Request failed')
 
 
@@ -360,7 +367,7 @@ def createAccount():
     try:
         params = {"os":deviceiOSVersion,"dm":deviceModel,"did":uuid4,"ua":"iPhone","aid":"DealerApp","aname":"SiriusXM Dealer","chnl":"mobile","plat":"ios","aver":appVer,"atype":"native","stype":"b2c","kuid":"","mfaid":"df7be3dc-e278-436c-b2f8-4cfde321df0a","mfbaseid":"efb9acb6-daea-4f2f-aeb3-b17832bdd47b","mfaname":"DealerApp","sdkversion":"9.5.36","sdktype":"js","fid":"frmRadioRefresh","sessiontype":"I","clientUUID":"1742536405634-41a8-0de0-125c","rsid":"1742536405654-b954-784f-38d2","svcid":"CreateAccount"}
         paramsStr = json.dumps(params, separators=(',', ':'))
-        response = requests.post(
+        response = session.post(
             url=
             "https://dealerapp.siriusxm.com/services/DealerAppService3/CreateAccount",
             headers={
@@ -385,7 +392,7 @@ def createAccount():
         #    status_code=response.status_code))
         print('Response HTTP Response Body: {content}'.format(
             content=response.content))
-    except requests.exceptions.RequestException:
+    except Exception:
         print('HTTP Request failed')
 
 
@@ -396,7 +403,7 @@ def update_2():
     try:
         params = {"os":deviceiOSVersion,"dm":deviceModel,"did":uuid4,"ua":"iPhone","aid":"DealerApp","aname":"SiriusXM Dealer","chnl":"mobile","plat":"ios","aver":appVer,"atype":"native","stype":"b2c","kuid":"","mfaid":"df7be3dc-e278-436c-b2f8-4cfde321df0a","mfbaseid":"efb9acb6-daea-4f2f-aeb3-b17832bdd47b","mfaname":"DealerApp","sdkversion":"9.5.36","sdktype":"js","fid":"frmRadioRefresh","sessiontype":"I","clientUUID":"1742536405634-41a8-0de0-125c","rsid":"1742536405654-b954-784f-38d2","svcid":"updateDeviceSATRefreshWithPriority"}
         paramsStr = json.dumps(params, separators=(',', ':'))
-        response = requests.post(
+        response = session.post(
             url=
             "https://dealerapp.siriusxm.com/services/USUpdateDeviceRefreshForCC/updateDeviceSATRefreshWithPriority",
             headers={
@@ -424,7 +431,7 @@ def update_2():
         #    status_code=response.status_code))
         print('Response HTTP Response Body: {content}'.format(
             content=response.content))
-    except requests.exceptions.RequestException:
+    except Exception:
         print('HTTP Request failed')
 
 # Global variables used for requests
@@ -437,7 +444,7 @@ deviceiOSVersion = "17.0"
 appVer = "3.1.0"
 userAgent = "SiriusXM%20Dealer/3.1.0 CFNetwork/1568.200.51 Darwin/24.1.0"
 
-requests = requests.Session()
+session = requests.Session()
 
 if len(radio_id_input) == 17:
     # VIN Activiation
@@ -450,7 +457,10 @@ if len(radio_id_input) == 17:
     print("update_1_vin")
     seq = update_1_vin()
     print("USDealerVehicleData")
-    radio_id_input = USDealerVehicleData()
+    radio_id_result = USDealerVehicleData()
+    if radio_id_result is None:
+        sys.exit(1)
+    radio_id_input = radio_id_result
     print("getCRM")
     getCRM()
     print("blocklist")
