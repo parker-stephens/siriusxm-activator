@@ -1,0 +1,32 @@
+name: Run main.py
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: 'ID to pass to main.py'
+        required: true
+        type: secret
+
+jobs:
+  run-main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies if present
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run main.py with secret input
+        env:
+          ID: ${{ github.event.inputs.id }}
+        run: |
+          echo "$ID" | python main.py
